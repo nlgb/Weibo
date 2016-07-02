@@ -19,11 +19,21 @@ class MainViewController: UITabBarController {
         // addChildViewController(DiscoverTableViewController(), image: "tabbar_discover", highLightImage: "tabbar_discover_highlighted", title: "发现")
         // addChildViewController(ProfileTableViewController(), image: "tabbar_profile", highLightImage: "tabbar_profile_highlighted", title: "我")
         
+        let path = NSBundle.mainBundle().pathForResource("MainVCSettings.json", ofType: nil)!
+        let data = NSData.init(contentsOfFile: path)!
         
-        addChildViewController("HomeTableViewController", image: "tabbar_home", highLightImage: "tabbar_home_highlighted", title: "首页")
-        addChildViewController("MessageTableViewController", image: "tabbar_message_center", highLightImage: "tabbar_message_center_highlighted", title: "消息")
-        addChildViewController("DiscoverTableViewController", image: "tabbar_discover", highLightImage: "tabbar_discover_highlighted", title: "发现")
-        addChildViewController("ProfileTableViewController", image: "tabbar_profile", highLightImage: "tabbar_profile_highlighted", title: "我")
+        do{
+            let dicArr = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers)
+            for dic in dicArr as! [[String:AnyObject]]
+            {
+                addChildViewController(dic["vcName"] as! String, image: dic["imageName"] as! String, highLightImage: dic["imageName"] as! String + "_highlighted", title: dic["title"] as! String)
+            }
+        } catch{
+            addChildViewController("HomeTableViewController", image: "tabbar_home", highLightImage: "tabbar_home_highlighted", title: "首页")
+            addChildViewController("MessageTableViewController", image: "tabbar_message_center", highLightImage: "tabbar_message_center_highlighted", title: "消息")
+            addChildViewController("DiscoverTableViewController", image: "tabbar_discover", highLightImage: "tabbar_discover_highlighted", title: "发现")
+            addChildViewController("ProfileTableViewController", image: "tabbar_profile", highLightImage: "tabbar_profile_highlighted", title: "我")
+        }
     }
 
 

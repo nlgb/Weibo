@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D028C5541D279E83008EAF1C /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = D028C5531D279E83008EAF1C /* MainVCSettings.json */; };
+		D028C5591D279ECB008EAF1C /* NullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D028C5581D279ECB008EAF1C /* NullViewController.swift */; };
 		D0386F421D0482E200A276B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0386F411D0482E200A276B4 /* AppDelegate.swift */; };
 		D0386F491D0482E200A276B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0386F481D0482E200A276B4 /* Assets.xcassets */; };
 		D0386F571D0482E200A276B4 /* WeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0386F561D0482E200A276B4 /* WeiboTests.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D028C5531D279E83008EAF1C /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
+		D028C5581D279ECB008EAF1C /* NullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullViewController.swift; sourceTree = "<group>"; };
 		D0386F3E1D0482E200A276B4 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0386F411D0482E200A276B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0386F481D0482E200A276B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -78,6 +82,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D028C5521D27974D008EAF1C /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				D028C5531D279E83008EAF1C /* MainVCSettings.json */,
+				D028C5581D279ECB008EAF1C /* NullViewController.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		D0386F351D0482E200A276B4 = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +172,7 @@
 		D0F598F11D05D1C100238922 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				D028C5521D27974D008EAF1C /* Resource */,
 				D0F598FF1D05D3FF00238922 /* MainViewController.swift */,
 			);
 			path = Main;
@@ -294,6 +308,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D028C5541D279E83008EAF1C /* MainVCSettings.json in Resources */,
 				D0386F491D0482E200A276B4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,6 +340,7 @@
 				D0F599001D05D3FF00238922 /* MainViewController.swift in Sources */,
 				D0F598F81D05D24100238922 /* MessageTableViewController.swift in Sources */,
 				D0386F421D0482E200A276B4 /* AppDelegate.swift in Sources */,
+				D028C5591D279ECB008EAF1C /* NullViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,12 +464,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Weibo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sw.iOS.Weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -462,6 +480,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Weibo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
