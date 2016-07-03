@@ -12,13 +12,41 @@ class MainViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        // 添加所有子控制器
+        addChildViewControllers()
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // 初始化加号按钮
+        setupComposeBtn()
+    }
+    
+    // MARK: 初始化加号按钮
+    private func setupComposeBtn() {
+        // 把加号按钮添加到tabBar上
+        tabBar.addSubview(composeButton)
+        // 设置宽度
+        // let width = tabBar.itemWidth
+        let width = tabBar.bounds.width / CGFloat(childViewControllers.count)
+        // 设置高度
+        let height = tabBar.frame.size.height
+        // 修改frame
+        let rect = CGRect(origin:CGPointZero, size:CGSize(width:width, height:height))
+        composeButton.frame = CGRectOffset(rect, 2 * width, 0)
+    }
+    
+    // MARK: 添加所有子控制器
+    private func addChildViewControllers() {
+        
+        /*
         // addChildViewController(HomeTableViewController(), image: "tabbar_home", highLightImage: "tabbar_home_highlighted", title: "首页")
         // addChildViewController(MessageTableViewController(), image: "tabbar_message_center", highLightImage: "tabbar_message_center_highlighted", title: "消息")
         // addChildViewController(DiscoverTableViewController(), image: "tabbar_discover", highLightImage: "tabbar_discover_highlighted", title: "发现")
         // addChildViewController(ProfileTableViewController(), image: "tabbar_profile", highLightImage: "tabbar_profile_highlighted", title: "我")
-        
+        */
         let path = NSBundle.mainBundle().pathForResource("MainVCSettings.json", ofType: nil)!
         let data = NSData.init(contentsOfFile: path)!
         
@@ -31,16 +59,14 @@ class MainViewController: UITabBarController {
         } catch{
             addChildViewController("HomeTableViewController", image: "tabbar_home", highLightImage: "tabbar_home_highlighted", title: "首页")
             addChildViewController("MessageTableViewController", image: "tabbar_message_center", highLightImage: "tabbar_message_center_highlighted", title: "消息")
+            addChildViewController("NullViewController", image: "", highLightImage: "", title: "")
             addChildViewController("DiscoverTableViewController", image: "tabbar_discover", highLightImage: "tabbar_discover_highlighted", title: "发现")
             addChildViewController("ProfileTableViewController", image: "tabbar_profile", highLightImage: "tabbar_profile_highlighted", title: "我")
         }
     }
 
-
-
-
-    // MARK: 内部控制方法
-    func addChildViewController(childControllerName: String?, image: String?, highLightImage: String?, title:String?) {
+    // MARK: 创建子控制器
+    private func addChildViewController(childControllerName: String?, image: String?, highLightImage: String?, title:String?) {
         
         let nameSpace = NSBundle.mainBundle().infoDictionary!["CFBundleExecutable"]
         // 可选绑定
@@ -89,7 +115,31 @@ class MainViewController: UITabBarController {
             // }
         // }
     }
+    
+    // MARK: 懒加载发布按钮
 
+    private lazy var composeButton: UIButton = {
+        var btn = UIButton()
+        // 1.设置背景图片
+        btn.setBackgroundImage(UIImage.init(named: "tabbar_compose_button"), forState: UIControlState.Normal)
+        btn.setBackgroundImage(UIImage.init(named: "tabbar_compose_button_highlighted"), forState: UIControlState.Highlighted)
+        // 2.设置前景图片
+        btn.setImage(UIImage.init(named: "tabbar_compose_icon_add"), forState: UIControlState.Normal)
+        btn.setImage(UIImage.init(named: "tabbar_compose_icon_add_highlighted"), forState: UIControlState.Highlighted)
+        // 3.监听按钮点击
+        btn.addTarget(self, action: Selector("composeBtnClick"), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        return btn
+    }()
+    
+    //MARK: 监听按钮点击
+    // 注意: 由于点击事件是由NSRunLoop发起的, 并不是当前类发起的, 所以如果在点击方法前面加上private, 那么NSRunLoop无法找到该方法
+    // OC是基于运行时动态派发事件的, 而Swift是编译时就已经确定了方法
+    // 如果想给监听点击的方法加上private, 并且又想让系统动态派发时能找到这个方法, 那么可以在前面加上@objc, @objc就能让这个方法支持动态派发
+
+    @objc private func composeBtnClick() {
+        WSLog("点击了写作按钮")
+    }
     
 //    // MARK: 内部控制方法
 //    func addChildViewController(childController:UIViewController, image: String, highLightImage: String, title:String) {
