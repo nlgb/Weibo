@@ -10,6 +10,7 @@ import UIKit
 
 class MainViewController: UITabBarController {
 
+    // MARK: 生命周期方法
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -118,7 +119,19 @@ class MainViewController: UITabBarController {
     
     // MARK: 懒加载发布按钮
 
+    
     private lazy var composeButton: UIButton = {
+        
+        var btn = UIButton(imageName: "tabbar_compose_icon_add", backImageName: "tabbar_compose_button")
+        btn.addTarget(self, action: Selector("composeBtnClick"), forControlEvents: UIControlEvents.TouchUpInside)
+        return btn
+        
+        /*
+        var btn = UIButton.create("tabbar_compose_icon_add", backImageName: "tabbar_compose_button")
+        btn.addTarget(self, action: Selector("composeBtnClick"), forControlEvents: UIControlEvents.TouchUpInside)
+        return btn
+        */
+        /*
         var btn = UIButton()
         // 1.设置背景图片
         btn.setBackgroundImage(UIImage.init(named: "tabbar_compose_button"), forState: UIControlState.Normal)
@@ -130,6 +143,8 @@ class MainViewController: UITabBarController {
         btn.addTarget(self, action: Selector("composeBtnClick"), forControlEvents: UIControlEvents.TouchUpInside)
         
         return btn
+         */
+        
     }()
     
     //MARK: 监听按钮点击

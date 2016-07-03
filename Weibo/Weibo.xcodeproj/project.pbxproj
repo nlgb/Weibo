@@ -13,6 +13,7 @@
 		D0386F491D0482E200A276B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0386F481D0482E200A276B4 /* Assets.xcassets */; };
 		D0386F571D0482E200A276B4 /* WeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0386F561D0482E200A276B4 /* WeiboTests.swift */; };
 		D0386F621D0482E200A276B4 /* WeiboUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0386F611D0482E200A276B4 /* WeiboUITests.swift */; };
+		D06830401D28DB7C00C9ED75 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D068303F1D28DB7C00C9ED75 /* UIButton+Extension.swift */; };
 		D0F598F61D05D21300238922 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F598F51D05D21300238922 /* ProfileTableViewController.swift */; };
 		D0F598F81D05D24100238922 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F598F71D05D24100238922 /* MessageTableViewController.swift */; };
 		D0F598FC1D05D26600238922 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F598FB1D05D26600238922 /* HomeTableViewController.swift */; };
@@ -50,6 +51,7 @@
 		D0386F5D1D0482E200A276B4 /* WeiboUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeiboUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0386F611D0482E200A276B4 /* WeiboUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeiboUITests.swift; sourceTree = "<group>"; };
 		D0386F631D0482E200A276B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D068303F1D28DB7C00C9ED75 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		D0F598F51D05D21300238922 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		D0F598F71D05D24100238922 /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
 		D0F598FB1D05D26600238922 /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		D0F598F41D05D1C100238922 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				D068303F1D28DB7C00C9ED75 /* UIButton+Extension.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				D0F598F61D05D21300238922 /* ProfileTableViewController.swift in Sources */,
 				D0F599001D05D3FF00238922 /* MainViewController.swift in Sources */,
 				D0F598F81D05D24100238922 /* MessageTableViewController.swift in Sources */,
+				D06830401D28DB7C00C9ED75 /* UIButton+Extension.swift in Sources */,
 				D0386F421D0482E200A276B4 /* AppDelegate.swift in Sources */,
 				D028C5591D279ECB008EAF1C /* NullViewController.swift in Sources */,
 			);
